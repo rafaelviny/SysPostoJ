@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="br.com.db1.observatoriosocial.model.entity.AnexoDtoMapper">
+ 
+  <resultMap id="resultArquivo" type="AnexoDto">
+    <result property="id" javaType="Long" jdbcType="VARCHAR" column="ID_ANEXO"/>
+    <result property="arquivo" javaType="byte[]" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" column="BT_ARQUIVO"/>
+  </resultMap>
+  
+</mapper>

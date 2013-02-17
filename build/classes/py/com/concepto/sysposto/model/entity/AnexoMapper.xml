@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="py.com.concepto.sysposto.model.entity.AnexoMapper">
+
+	<resultMap id="resultId" type="Anexo">
+		<id property="id" column="ID_ANEXO" javaType="Long" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="resultSimple" type="Anexo" extends="resultId">
+		<result property="idProprietario" column="ID_PROPRIETARIO"
+			javaType="Long" jdbcType="VARCHAR" />
+		<result property="tipoProprietario" column="TP_PROPRIETARIO"
+			javaType="String" jdbcType="VARCHAR" />
+		<result property="tpAnexo" column="TP_ANEXO" javaType="TipoAnexo"
+			jdbcType="VARCHAR" />
+		<result property="descricao" column="DS_ANEXO" javaType="String"
+			jdbcType="VARCHAR" />
+		<result property="nomeArquivo" column="NM_ARQUIVO" javaType="String"
+			jdbcType="VARCHAR" />
+		<result property="dhAnexo" column="DH_ANEXO" javaType="Date"
+			jdbcType="VARCHAR" />
+	</resultMap>
+
+	<resultMap id="result" type="Anexo" extends="resultSimple">
+		<result property="arquivo" column="BT_ARQUIVO" javaType="byte[]"
+			jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
+	</resultMap>
+
+	<sql id="sqlDefault">
+		select anexo.id_anexo,
+		anexo.id_proprietario,
+		anexo.tp_proprietario,
+		anexo.tp_anexo,
+		anexo.ds_anexo,
+		anexo.nm_arquivo,
+		anexo.dh_anexo
+		from anexo anexo
+  </sql>
+
+	<select id="findAnexo" resultMap="resultSimple">
+		<include refid="sqlDefault" />
+		WHERE ${condition}
+	</select>
+
+	<select id="findListPoligomo" resultMap="resultSimple"
+		parameterType="hashMap">
+		<include refid="sqlDefault" />
+		WHERE anexo.id_proprietario = #{idProprietario}
+		AND anexo.tp_proprietario = #{tpProprietario}
+	</select>
+
+	<select id="defaultAnexo" resultMap="resultSimple">
+		<include refid="sqlDefault" />
+		${clause}
+	</select>
+
+	<select id="defaultAnexoId" resultMap="result">
+		${clause}
+  </select>
+
+</mapper>
