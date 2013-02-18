@@ -6,10 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import py.com.concepto.sysposto.dao.UsuarioDao;
 import py.com.concepto.sysposto.model.entity.Usuario;
-import py.com.concepto.sysposto.service.EmpresaService;
-import py.com.concepto.sysposto.service.FilialService;
 import py.com.concepto.sysposto.service.UsuarioService;
-import br.com.db1.exception.persistence.DB1PersistenceException;
 import br.com.db1.myBatisPersistence.service.GenericMyBatisServiceImpl;
 
 
