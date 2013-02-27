@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import br.com.db1.myBatisPersistence.annotations.MBClass;
+
 @Entity
 @Table(name = "EMPRESA")
 public class Empresa implements Serializable{

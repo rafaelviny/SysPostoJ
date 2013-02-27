@@ -9,8 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import br.com.db1.myBatisPersistence.annotations.MBClass;
+
 @Entity
 @Table(name = "USUARIO")
+@MBClass(additionalInsertColumns = "ID_SYSTEM_INSTANCE", 
+		additionalInsertValues = "#{@sessionHandler.SYSTEM_INSTANCE.id}")
 public class Usuario implements Serializable {
 
 	/**

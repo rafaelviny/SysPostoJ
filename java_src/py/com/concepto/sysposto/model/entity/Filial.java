@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "FILIAL")
+
 public class Filial implements Serializable {
 	
 	/**

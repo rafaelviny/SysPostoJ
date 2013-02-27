@@ -31,6 +31,14 @@
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
+<!-- 	<bean id="dataSource" -->
+<!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 		<property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
+<!-- 		<property name="url" -->
+<!-- 			value="mysql://127.13.30.129:3306/sistema" /> -->
+<!-- 		<property name="username" value="adminXJ1YluH" /> -->
+<!-- 		<property name="password" value="8ySx1Z8E9w6z" /> -->
+<!-- 	</bean> -->
 
 	<!-- transaction manager, use JtaTransactionManager for global tx -->
 	<bean id="transactionManager"
